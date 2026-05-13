@@ -1,0 +1,70 @@
+<div class="container mt-5">
+
+  <div class="card shadow-lg">
+
+    <div class="card-header bg-dark text-white">
+      <h3>Registered Users</h3>
+    </div>
+
+    <div class="card-body">
+
+      <div class="row mb-3">
+
+        <div class="col-md-4">
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="searchText"
+                 placeholder="Search by name">
+        </div>
+
+        <div class="col-md-2">
+          <button class="btn btn-primary"
+                  (click)="search()">
+            Search
+          </button>
+        </div>
+
+      </div>
+
+      <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Hobbies</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let user of users">
+
+            <td>
+              <a [href]="'mailto:' + user.email">
+                {{user.name}}
+              </a>
+            </td>
+
+            <td>{{user.gender}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.contactNo}}</td>
+            <td>{{user.state?.name}}</td>
+            <td>{{user.city?.name}}</td>
+            <td>{{user.hobbies}}</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
